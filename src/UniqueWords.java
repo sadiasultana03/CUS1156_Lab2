@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class UniqueWords
 {
@@ -9,15 +10,32 @@ public class UniqueWords
    */
    public static int countUnique(ArrayList<String> list)
    {
-	  int count = 0;
-	  
-      for (int i = 0; i < list.size(); i++)
-      {		 for (int j = 0; j < list.size(); j++)
-		 {
-			
-		 }
-      }
-	  return count;
+	   
+	   int count = 0;
+	      
+	      // Here I Loop through the list
+	      for (int i = 0; i < list.size(); i++)
+	      {
+	         boolean isUnique = true; // Assuming the element is unique
+	         
+	         // Checking the current element against all previous elements
+	         for (int j = 0; j < i; j++)
+	         {
+	            if (list.get(i).equals(list.get(j))) // If it's a duplicate, break
+	            {
+	               isUnique = false;
+	               break;
+	            }
+	         }
+	         
+	         // If the element is unique, increment the count
+	         if (isUnique)
+	         {
+	            count++;
+	         }
+	      }
+	      
+	      return count;
    }
 
    public static void main(String[] args)
